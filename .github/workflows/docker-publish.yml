@@ -19,4 +19,4 @@ jobs:
     - name: Build the Docker image
       run: |
         VERSION=$(date +%s)
-        docker build . --file Dockerfile --tag docker.pkg.github.com/yoriiis/docker-hub/html-validator:$(VERSION)
+        docker build . --file images/html-validator/Dockerfile --tag docker.pkg.github.com/yoriiis/docker-hub/html-validator:$(VERSION)
