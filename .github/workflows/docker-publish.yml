@@ -1,0 +1,22 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    # docker login docker.pkg.github.com --username yoriiis --password ${{ secrets.GITHUB_TOKEN }}
+    # docker push docker.pkg.github.com/yoriiis/docker-hub/html-validator:${VERSION}
+    - name: Build the Docker image
+      run: |
+        VERSION=$(date +%s)
+        docker build . --file Dockerfile --tag docker.pkg.github.com/yoriiis/docker-hub/html-validator:$(VERSION)
