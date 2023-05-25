@@ -17,7 +17,5 @@ jobs:
     # docker login docker.pkg.github.com --username yoriiis --password ${{ secrets.GITHUB_TOKEN }}
     # docker push docker.pkg.github.com/yoriiis/docker-hub/html-validator:v1
     - name: Build the Docker image
-      env:
-        version: 'lastvar'
       run: |
-        docker build . --file images/html-validator/Dockerfile --tag docker.pkg.github.com/yoriiis/docker-hub/html-validator:v1
+        docker build . --file ./images/html-validator/Dockerfile --tag docker.pkg.github.com/yoriiis/docker-hub/html-validator:v1
